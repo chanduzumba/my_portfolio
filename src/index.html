@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ========================================
+         META TAGS - Page information & SEO
+         ======================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Chandrika P">
+    <meta name="description" content="Chandrika's Potfolio">
+    
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+    <title>Chandrika's Potfolio</title>
+</head>
+
+<body>
+    <!-- ========================================
+         HEADER & NAVIGATION - Fixed sticky header
+         ======================================== -->
+    <header>
+        <nav>
+            <!-- Portfolio logo/branding -->
+            <!-- <img class="logo" src="images/FullLogo_NoBuffer.jpg" width="80" height="50" alt="logo"> -->
+            <div class="logo"><strong><i>Chandrika</i></strong></div>
+            
+            <!-- Navigation menu - links to all page sections -->
+            <ul>
+                <li class="nav-list">
+                    <a href="#homePage" class="active">Home</a>
+                </li>
+                <li class="nav-list">
+                    <a href="#about-me">About</a>
+                </li>
+                <li class="nav-list">
+                    <a href="#skills">Skills</a>
+                </li>
+                <li class="nav-list">
+                    <a href="#certifications">Certifications</a>
+                </li>
+                <li class="nav-list">
+                    <a href="#projects">Projects</a>
+                </li>
+                <li class="nav-list">
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+            
+            <!-- Day/Night toggle switch (currently styled, not functional) -->
+            <input type="checkbox" id="day-night-toggle">
+            <label for="day-night-toggle" class="switch"></label>
+        </nav>
+    </header>
+    
+    <!-- ========================================
+         MAIN CONTENT AREA
+         ======================================== -->
+    <main>
+        <!-- ========================================
+             HOME/HERO SECTION - Introduction
+             ======================================== -->
+        <article id="homePage" class="home-page">
+            <!-- Profile picture with animation -->
+            <img src="images/MyPic.png" class="my-pic" width="300" height="300" alt="Chandrika's picture">
+            
+            <!-- Introduction content -->
+            <div class="home-page-content">
+                <h1>Hi, I'm <strong>Chandrika</strong></h1>
+                <h4>Software developer</h4>
+                <p>As an experienced web developer, I bring ideas to life as a versatile fullstack developer.</p>
+                
+                <!-- Social media links -->
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank"><img class="facebook" src="images/icons/facebook.svg"
+                            alt="facebook"></a>
+                    <a href="https://www.instagram.com/chanduzumba3/" target="_blank"><img class="insta"
+                            src="images/icons/instagram.svg" alt="instagram"></a>
+                    <a href="https://www.linkedin.com/in/chandrika-prakash-06723a266" target="_blank"><img class="linkedIn"
+                            src="images/icons/linkedIn.svg" alt="linkedIn"></a>
+                    <a href="https://x.com/chanduzumba" target="_blank"><img src="images/icons/twitter.svg" class="twitter"
+                            alt="twitter"></a>
+                </div>
+                <button class="cv-button"><a href="files/Chandrika_P_CV.pdf" download>Download CV</a></button>
+            </div>
+        </article>
+        
+        <!-- ========================================
+             ABOUT ME SECTION - Personal introduction
+             ======================================== -->
+        <section id="about-me">
+            <div class="about-content">
+                <!-- About text content -->
+                <div>
+                    <h1>ABOUT ME!</h1>
+                    <h2>Your Savior At Debugging And Troubleshooting</h2>
+                    
+                    <!-- Main about paragraph -->
+                    <p>Dynamic software developer with over 4 years of diverse experience in both internships
+                        and full-time roles, including impactful positions at Cognizant and Walmart. Proficient
+                        in JavaScript and skilled in crafting user-centric designs while ensuring robust backend
+                        functionality. My colleagues call me a <mark><em>Saviour!</em></mark> at times of debugging any issue and
+                        Troubleshooting.</p>
+                    
+                    <!-- Read More/Less expandable section -->
+                    <details>
+                        <summary class="read-more button">Read More</summary>
+                        <p class="extra-content">Committed to enhancing application performance and driving innovative
+                            solutions in software development. Eager to leverage strong programming and
+                            troubleshooting abilities in a challenging new role. Passionate about fostering user
+                            engagement through effective UI/UX strategies.</p>
+                    </details>
+                </div>
+                <!-- About section image -->
+                <img class="about-img" src="images/troubleshooter.jpg" width="300" height="300"
+                    alt="troubleshooter image">
+            </div>
+        </section>
+        
+        <!-- ========================================
+             SKILLS SECTION - Technical skills with progress bars
+             ======================================== -->
+        <section id="skills">
+            <h1>Skills</h1>
+            
+            <!-- HTML skill -->
+            <label for="html">HTML</label>
+            <progress id="html" value="90" max="100">90%</progress>
+            
+            <!-- CSS skill -->
+            <label for="css">CSS</label>
+            <progress id="css" value="80" max="100">80%</progress>
+            
+            <!-- JavaScript skill -->
+            <label for="javascript">JavaScript</label>
+            <progress id="javascript" value="80" max="100">80%</progress>
+            
+            <!-- React skill -->
+            <label for="react">React</label>
+            <progress id="react" value="70" max="100">70%</progress>
+            
+            <!-- Node.js skill -->
+            <label for="node">Node.js</label>
+            <progress id="node" value="60" max="100">60%</progress>
+            
+            <!-- MongoDB skill -->
+            <label for="mongodb">MongoDB</label>
+            <progress id="mongodb" value="90" max="100">90%</progress>
+            
+            <!-- Express.js skill -->
+            <label for="express">Express.js</label>
+            <progress id="express" value="50" max="100">50%</progress>
+        </section>
+        
+        <!-- ========================================
+             CERTIFICATIONS SECTION - Professional certifications
+             ======================================== -->
+        <section id="certifications">
+            <h1>Certifications</h1>
+            <div class="certificates-container">
+                <!-- AWS Certificate Card -->
+                <div class="certificate-card">
+                    <h3>AWS Associate</h3>
+                    <p>Issued by: Udemy</p>
+                    <p>Year: 2022</p>
+                    <a href="#cert-aws" class="view-certificate">View Certificate</a>
+                </div>
+                
+                <!-- React Certificate Card -->
+                <div class="certificate-card">
+                    <h3>React Advanced</h3>
+                    <p>Issued by: Coursera</p>
+                    <p>Year: 2024</p>
+                    <a href="#cert-react" class="view-certificate">View Certificate</a>
+                </div>
+                
+                <!-- Full Stack Certificate Card -->
+                <div class="certificate-card">
+                    <h3>Full Stack Development</h3>
+                    <p>Issued by: Internshala</p>
+                    <p>Year: 2025</p>
+                    <a href="#cert-fullstack" class="view-certificate">View Certificate</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========================================
+             CERTIFICATE MODALS - Popups for viewing certificates
+             ======================================== -->
+        <!-- AWS Certificate Modal -->
+        <div id="cert-aws" class="certificate-modal">
+            <div class="modal-content">
+                <a href="#certifications" class="modal-close">&times;</a>
+                <img src="images/certificates/aws.jpg" alt="AWS Associate Certificate">
+                <p>AWS Associate Certification - Udemy (2022)</p>
+            </div>
+        </div>
+        
+        <!-- React Certificate Modal -->
+        <div id="cert-react" class="certificate-modal">
+            <div class="modal-content">
+                <a href="#certifications" class="modal-close">&times;</a>
+                <img src="images/certificates/react.png" alt="React Advanced Certificate">
+                <p>React Advanced Certification - Coursera (2024)</p>
+            </div>
+        </div>
+        
+        <!-- Full Stack Certificate Modal -->
+        <div id="cert-fullstack" class="certificate-modal">
+            <div class="modal-content">
+                <a href="#certifications" class="modal-close">&times;</a>
+                <img src="images/certificates/fullstack.png" alt="Full Stack Development Certificate">
+                <p>Full Stack Development Certification - Internshala (2025)</p>
+            </div>
+        </div>
+        
+        <!-- ========================================
+             PROJECTS SECTION - Portfolio projects
+             ======================================== -->
+        <section id="projects">
+            <h1>Projects</h1>
+            <div class="projects-container">
+                <!-- Project 1: E-Commerce Platform -->
+                <div class="project-card">
+                    <h3>E-Commerce Platform</h3>
+                    <p class="tech-stack">React | Node.js | MongoDB</p>
+                    <p>A full-stack e-commerce application with product catalog, shopping cart, and payment integration.</p>
+                    <a href="https://github.com" target="_blank" class="project-link">View Project</a>
+                </div>
+                
+                <!-- Project 2: Weather App -->
+                <div class="project-card">
+                    <h3>Weather App</h3>
+                    <p class="tech-stack">HTML | CSS | JavaScript</p>
+                    <p>Real-time weather forecasting application using weather APIs with responsive design.</p>
+                    <a href="https://github.com" target="_blank" class="project-link">View Project</a>
+                </div>
+                
+                <!-- Project 3: Task Management System -->
+                <div class="project-card">
+                    <h3>Task Management System</h3>
+                    <p class="tech-stack">React | Express.js | MongoDB</p>
+                    <p>A collaborative task management tool with user authentication and real-time updates.</p>
+                    <a href="https://github.com" target="_blank" class="project-link">View Project</a>
+                </div>
+                
+                <!-- Project 4: Social Media Dashboard -->
+                <div class="project-card">
+                    <h3>Social Media Dashboard</h3>
+                    <p class="tech-stack">React | Firebase | Material-UI</p>
+                    <p>Dashboard to manage multiple social media accounts and schedule posts in advance.</p>
+                    <a href="https://github.com" target="_blank" class="project-link">View Project</a>
+                </div>
+                
+                <!-- Project 5: Blog Platform -->
+                <div class="project-card">
+                    <h3>Blog Platform</h3>
+                    <p class="tech-stack">Next.js | GraphQL | PostgreSQL</p>
+                    <p>A modern blogging platform with CMS capabilities, SEO optimization, and user comments.</p>
+                    <a href="https://github.com" target="_blank" class="project-link">View Project</a>
+                </div>
+                
+                <!-- Project 6: Portfolio Website -->
+                <div class="project-card">
+                    <h3>Portfolio Website</h3>
+                    <p class="tech-stack">HTML | CSS | JavaScript</p>
+                    <p>A responsive personal portfolio website showcasing skills, projects, and certifications.</p>
+                    <a href="https://github.com" target="_blank" class="project-link">View Project</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========================================
+             CONTACT SECTION - Contact form
+             ======================================== -->
+        <section id="contact">
+            <h1>Contact</h1>
+            <!-- Contact form for getting in touch -->
+            <form>
+                <!-- Name input field -->
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <!-- Email input field -->
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <!-- Message textarea -->
+                <div class="message">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <!-- Submit button -->
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+    
+    <!-- ========================================
+         FOOTER - Bottom of page with copyright
+         ======================================== -->
+    <footer>
+        <small>Copywright @2026 Chandrika P</small>
+        <!-- Call button (currently non-functional, can be connected to backend) -->
+        <button>Call</button>
+        <!-- Email button (currently non-functional, can be connected to backend) -->
+        <button>Email</button>
+    </footer>
+    
+    <!-- ========================================
+         PAGE UP BUTTON - Fixed button to scroll to top
+         ======================================== -->
+    <a href="#homePage" class="page-up-btn" title="Go to Home">^</a>
+</body>
+</html>

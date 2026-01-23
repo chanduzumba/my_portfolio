@@ -1,0 +1,624 @@
+/* ============================================================
+   GLOBAL STYLES - Reset and basic page setup
+   ============================================================ */
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* ============================================================
+   HEADER & NAVIGATION - Fixed header that stays at top
+   ============================================================ */
+header{
+    background-color: black;
+    width: 100vw;
+    position: sticky; /* Stays at top when scrolling */
+    top: 0;
+    z-index: 2; /* Stays above other content */
+}
+
+/* Add margin-top to sections so content appears below header when scrolled to */
+#homePage,
+#about-me,
+#skills,
+#certifications,
+#projects,
+#contact {
+    scroll-margin-top: 10rem;
+}
+nav{
+    display: flex;
+    padding: 0.5rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.logo{
+    color: white;
+    border: 1px solid white;
+    background-color: #ada119;
+    box-shadow: 1rem -0.5rem 1rem white;
+    border-radius: 1rem;
+    text-align: center;
+    padding: 1rem;
+    height: auto;
+}
+/* Hide the day/night toggle checkbox */
+#day-night-toggle{
+    visibility: hidden;
+}
+/* Styling for the toggle switch */
+.switch{
+    position: relative;
+    width: 6rem;
+    height: 3rem;
+    border-radius: 1rem;
+    background-color: lightblue;
+}
+.switch::before{
+    content:  url("images/sun.svg")/ "Sun Image";
+    position: absolute;
+    display: inline-block;
+    background: white;
+    height: 3rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.switch::before:checked {
+    background: #ada119;
+}
+.switch::after{
+    content: url("images/moon.svg") / "Moon Image";
+    position: absolute;
+    display: inline-block;
+    background: lightblue;
+    height: 3rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    left:3rem;
+}
+.nav-list{
+    display: inline-block;
+    padding: 0.5rem;
+    font-weight: bolder;
+    color: white;
+}
+
+/* ============================================================
+   HOME PAGE SECTION - Hero/intro section
+   ============================================================ */
+.home-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background-color: #07162b;
+}
+.home-page-content{
+    padding: 1rem;
+    color: white;
+    text-align: center;
+    max-width: 90%;
+}
+.social-icons{
+    display: flex;
+    margin-top: 2rem;
+}
+/* Social media icons scale up on hover */
+.facebook:hover, .insta:hover, .linkedIn:hover, .twitter:hover {
+    transform: scale(1.5);
+}
+
+/* ============================================================
+   BUTTONS - General button styling
+   ============================================================ */
+button, .button{
+    width: 10rem;
+    height: 3rem;
+    background-color: #c7b9ebba;
+    border-radius: 0.5rem;
+    box-shadow: 0.1rem 0.2rem;
+    cursor: pointer;
+}
+
+/* ============================================================
+   CERTIFICATE VIEW BUTTON - Styled link as button
+   ============================================================ */
+.view-certificate {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    height: 3rem;
+    background-color: #c7b9ebba;
+    border-radius: 0.5rem;
+    box-shadow: 0.1rem 0.2rem;
+    text-decoration: none;
+    color: inherit;
+    font-weight: bolder;
+    transition: background-color 0.3s ease;
+}
+.view-certificate:hover {
+    background-color: rgb(6, 122, 126);
+}
+
+/* ============================================================
+   CERTIFICATE MODAL - Popup for viewing certificates
+   ============================================================ */
+.certificate-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease;
+}
+.certificate-modal:target {
+    display: flex; /* Show modal when URL has this ID */
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    animation: slideIn 0.3s ease;
+    text-align: center;
+}
+.modal-content img {
+    width: 100%;
+    max-height: 500px;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    object-fit: contain;
+}
+.modal-content p {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+    margin-top: 1rem;
+}
+.modal-close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.modal-close:hover {
+    color: #000;
+}
+
+/* ============================================================
+   READ MORE/LESS - Details/Summary styling for expandable content
+   ============================================================ */
+summary {
+    list-style: none; /* Hide default disclosure triangle */
+}
+summary::-webkit-details-marker {
+    display: none; /* Hide browser-specific triangle */
+}
+summary.read-more {
+    font-size: 0;
+}
+summary.read-more::after {
+    content: "Read More";
+    font-size: 1rem;
+}
+details[open] summary.read-more::after {
+    content: "Read Less"; /* Changes text when expanded */
+}
+
+.button{
+    border: none;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-align: center;
+    padding: 0.5rem;
+}
+button:hover{
+    background-color: rgb(6, 122, 126);
+}
+
+/* Mobile breakpoint for nav, home, and about sections */
+@media (width <= 570px) {
+    nav,.home-page,.about-content{
+        flex-wrap: wrap;
+    }
+}
+
+/* ============================================================
+   PROFILE PICTURE - With animation effect
+   ============================================================ */
+.my-pic{
+    border-radius: 50%;
+    box-shadow: 1rem -1rem 1rem lightcoral;
+    z-index: 1;
+    animation: photoFlip 5s linear infinite 1s alternate running;
+    width: min(300px, 80vw);
+    height: auto;
+    max-width: 100%;
+}
+/* Animation for profile picture - rotates around Y axis */
+@keyframes photoFlip {
+    from{
+        transform: rotateY(40deg);
+    } to {
+        transform: rotateY(-200deg);
+    }
+}
+
+/* ============================================================
+   NAVIGATION LINKS - Active, hover, focus states
+   ============================================================ */
+a.active{
+    font-size: bold;
+    text-decoration: underline;
+    color: yellow;
+}
+/* Hover state - when user hovers over a link */
+nav a:hover {
+    color: #ada119;
+    text-decoration: underline;
+    transition: all 0.3s ease;
+}
+/* Active state - while clicking */
+nav a:active {
+    color: orange;
+    font-weight: bold;
+}
+/* Focus state - for keyboard navigation */
+nav a:focus {
+    outline: 2px solid yellow;
+    outline-offset: 2px;
+    border-radius: 0.3rem;
+}
+
+/* ============================================================
+   ABOUT SECTION - About me content with image
+   ============================================================ */
+.about-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    gap: 2rem;
+    background: cadetblue;
+}
+.about-img{
+    box-shadow: 1rem 1rem 1rem 1rem cyan;
+    z-index: 1;
+    width: min(300px, 80vw);
+    height: auto;
+    max-width: 100%;
+}
+
+/* ============================================================
+   FOOTER - Bottom of page
+   ============================================================ */
+footer{
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* ============================================================
+   CONTACT SECTION - Contact form
+   ============================================================ */
+#contact{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    background: rgb(105, 101, 101);
+    width: 100%;
+} 
+input, textarea{
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    border: 1px solid;
+    border-radius: 1rem;
+    max-width: 100%;
+    width: min(400px, 90vw);
+    font-size: 1rem;
+}
+input:focus, textarea:focus{
+    outline: none;
+    border: 2px solid blue;
+}
+label {
+    font-weight: bolder;
+    align-items: flex-start;
+}
+.message{
+    display: flex;
+    flex-direction: column;
+}
+
+/* ============================================================
+   SKILLS SECTION - Skills with progress bars
+   ============================================================ */
+#skills{
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    background: rgb(180, 176, 176);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+progress{
+    width: min(20rem, 90vw);
+    height: 1.5rem;
+}
+
+/* ============================================================
+   PROJECTS SECTION - Project cards in grid layout
+   ============================================================ */
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    gap: 2rem;
+    background: #f5f5f5;
+    width: 100%;
+}
+#projects h1 {
+    color: #333;
+}
+/* Grid that auto-fits cards with 300px minimum width */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+/* Individual project card styling */
+.project-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+/* Hover effect - card lifts up */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.project-card h3 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+/* Technology stack styling */
+.project-card .tech-stack {
+    color: #ada119;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 0;
+}
+.project-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1; /* Takes up remaining space */
+}
+/* Project link button */
+.project-link {
+    display: inline-block;
+    background-color: #ada119;
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+.project-link:hover {
+    background-color: rgb(6, 122, 126);
+}
+
+/* ============================================================
+   CERTIFICATIONS SECTION - Certificate cards
+   ============================================================ */
+#certifications{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    gap: 2rem;
+    background: rgb(2, 73, 73);
+    width: 100%;
+}
+.certificates-container{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.certificate-card{
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0.5rem 0.5rem 1rem gray;
+    width: min(20rem, 90vw);
+    text-align: center;
+    background: rgb(165, 235, 225);
+}
+/* Certificate card scales on hover */
+.certificate-card:hover {
+    transform: scale(1.2);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN - Tablet (768px and below)
+   ============================================================ */
+@media (max-width: 768px) {
+    .logo {
+        padding: 0.5rem;
+        height: auto;
+        font-size: 0.9rem;
+    }
+    .home-page-content h1 {
+        font-size: 1.5rem;
+    }
+    .home-page-content h4 {
+        font-size: 1rem;
+    }
+    .about-content {
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    button {
+        width: 8rem;
+        height: 2.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN - Mobile (480px and below)
+   ============================================================ */
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-list {
+        padding: 0.3rem;
+        font-size: 0.85rem;
+    }
+    .home-page {
+        min-height: auto;
+        padding: 1rem 0.5rem;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .my-pic {
+        width: min(250px, 80vw);
+    }
+    .home-page-content h1 {
+        font-size: 1.25rem;
+    }
+    .home-page-content p {
+        font-size: 0.9rem;
+    }
+    .social-icons {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+    }
+    input, textarea {
+        width: min(300px, 85vw);
+        padding: 0.5rem;
+        margin: 0.3rem 0;
+    }
+    button {
+        width: 7rem;
+        height: 2.2rem;
+        font-size: 0.8rem;
+    }
+    .certificate-card {
+        width: min(280px, 85vw);
+        padding: 1rem;
+    }
+    progress {
+        width: min(250px, 85vw);
+    }
+}
+
+/* Mobile breakpoint for skills and certifications sections */
+@media (width <= 570px) {
+    #skills, #certifications{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
+/* ============================================================
+   ABOUT ME SECTION
+   ============================================================ */
+#about-me{
+    width: 100%;
+    display: flex;
+}
+
+/* ============================================================
+   PAGE UP BUTTON - Fixed button to scroll to top
+   ============================================================ */
+.page-up-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: #ada119;
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 99;
+}
+.page-up-btn:hover {
+    background-color: rgb(6, 122, 126);
+    transform: scale(1.1);
+}
+
+/* Mobile styling for page up button */
+@media (max-width: 480px) {
+    .page-up-btn {
+        bottom: 1rem;
+        right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+    }
+}
