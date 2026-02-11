@@ -12,10 +12,11 @@
    ============================================================ */
 header{
     background-color: black;
-    width: 100vw;
+    width: 100%;
     position: sticky; /* Stays at top when scrolling */
     top: 0;
     z-index: 2; /* Stays above other content */
+    overflow: hidden;
 }
 
 /* Add margin-top to sections so content appears below header when scrolled to */
@@ -42,7 +43,7 @@ a{
     color: white;
     border: 1px solid white;
     background-color: #ada119;
-    box-shadow: 1rem -0.5rem 1rem white;
+    box-shadow: 0.5rem -0.25rem 0.5rem rgba(255, 255, 255, 0.5);
     border-radius: 1rem;
     text-align: center;
     padding: 1rem;
@@ -110,10 +111,16 @@ a{
 .social-icons{
     display: flex;
     margin-top: 2rem;
+    justify-content: center;
+    gap: 1rem;
+    overflow: hidden;
+}
+.social-icons img {
+    transition: transform 0.3s ease;
 }
 /* Social media icons scale up on hover */
 .facebook:hover, .insta:hover, .linkedIn:hover, .twitter:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 /* ============================================================
@@ -250,7 +257,7 @@ button:hover{
    ============================================================ */
 .my-pic{
     border-radius: 50%;
-    box-shadow: 1rem -1rem 1rem lightcoral;
+    box-shadow: 0.5rem -0.5rem 0.75rem rgba(240, 128, 128, 0.6);
     z-index: 1;
     animation: photoFlip 5s linear infinite 1s alternate running;
     width: min(300px, 80vw);
@@ -303,13 +310,22 @@ nav a:focus {
     padding: 2rem 1rem;
     gap: 2rem;
     background: cadetblue;
+    overflow: hidden;
+    width: 100%;
 }
 .about-img{
-    box-shadow: 1rem 1rem 1rem 1rem cyan;
+    box-shadow: 0.5rem 0.5rem 0.75rem black;
+    border-radius: 1rem;
     z-index: 1;
     width: min(300px, 80vw);
     height: auto;
     max-width: 100%;
+}
+.about-me-text{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
 }
 
 /* ============================================================
@@ -375,8 +391,14 @@ label {
     width: 100%;
 }
 progress{
+    /* Set width to 20rem, but never allow it to exceed 90% of the screen */
     width: min(20rem, 90vw);
     height: 1.5rem;
+}
+progress::after {
+    content: attr(value) "%";
+    position: relative;
+    left: 105%;
 }
 
 /* ============================================================
@@ -486,7 +508,10 @@ progress{
 }
 /* Certificate card scales on hover */
 .certificate-card:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+}
+.certificate-card {
+    transition: transform 0.3s ease;
 }
 
 /* ============================================================
@@ -606,10 +631,11 @@ progress{
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, transform 0.3s ease;
     z-index: 99;
+    overflow: hidden;
 }
 .page-up-btn:hover {
     background-color: rgb(6, 122, 126);
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* Mobile styling for page up button */
